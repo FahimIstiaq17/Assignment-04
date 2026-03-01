@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Tracker</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Css links  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+      * {
+        font-family: "Geist", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#F8FAFC] py-15">
+    <section class="container mx-auto">
+      <header class="mb-5">
+        <h2 class="text-3xl font-bold text-[#002C5C]">
+          Job Application Tracker
+        </h2>
+      </header>
+      <!-- application Card -->
+      <section class="grid grid-cols-3 gap-4">
+        <!-- card 1 -->
+        <div class="p-5 bg-white rounded-md shadow-md gap-y-2">
+          <p class="font-medium text-[14px] text-[#323B49]">Total</p>
+          <h1 class="font-bold text-2xl text-[#002C5C]">8</h1>
+        </div>
+        <!-- Card 2 -->
+        <div class="p-5 bg-white rounded-md shadow-md gap-y-2">
+          <p class="font-medium text-[14px] text-[#323B49]">Interview</p>
+          <h1 class="font-bold text-2xl text-[#10B981]">0</h1>
+        </div>
+        <!--  Card 3 -->
+        <div class="p-5 bg-white rounded-md shadow-md gap-y-2">
+          <p class="font-medium text-[14px] text-[#323B49]">Rejected</p>
+          <h1 class="font-bold text-2xl text-[#EF4444]">0</h1>
+        </div>
+      </section>
+
+      <hr class="my-[30px] text-[#E6E7E9]" />
+
+      <!-- Available Jobs & Buttons -->
+      <section>
+        <div class="flex items-center place-content-between mb-6">
+          <h1 class="font-semibold text-[20px] text-[#002C5C]">
+            Available Jobs
+          </h1>
+          <h1 class="font-medium text-[16px] text-[#64748B]">8 jobs</h1>
+        </div>
+
+        <!-- Buttons -->
+        <div class="space-x-2">
+          <button
+            id="tab-all"
+            onclick="switchTab('all')"
+            class="btn btn-soft btn-primary bg-white text-[#64748B] hover:bg-[#3B82F6] hover:text-white"
+          >
+            All
+          </button>
+          <button
+            id="tab-interview"
+            onclick="switchTab('interview')"
+            class="btn btn-soft btn-primary bg-white text-[#64748B] hover:bg-[#3B82F6] hover:text-white"
+          >
+            Interview
+          </button>
+          <button
+            id="tab-rejected"
+            onclick="switchTab('rejected')"
+            class="btn btn-soft btn-primary bg-white text-[#64748B] hover:bg-[#3B82F6] hover:text-white"
+          >
+            Rejected
+          </button>
+        </div>
+      </section>
+
+      <!-- Job Cards -->
+      <section id="job-contaioner" class="mt-4 ">
+        
+        <div id="all-container" class="hidden space-y-4">
+          <!-- 1 JOB card -->
+          <div class="shadow-md p-6 space-y-2 rounded-xl bg-white">
+            <div class="flex justify-between items-center">
+              <div>
+                <h1 class="font-bold text-[18px] text-[#002C5C]">
+                  Mobile First Corp
+                </h1>
+                <p class="text-[16px] text-[#64748B]">React Native Developer</p>
+              </div>
+              <button class="btn btn-neutral rounded-full shrink-0">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+            <br />
+            <p class="text-[14px] text-[#64748B]">
+              Remote • Full-time • $130,000 - $175,000
+            </p>
+            <br />
+            <button class="btn btn-soft">Not Applied</button>
+            <p class="text-[14px] text-[#323B49]">
+              Build cross-platform mobile applications using React Native. Work
+              on products used by millions of users worldwide.
+            </p>
+            <br />
+            <div class="space-x-2">
+              <button class="btn btn-outline btn-success">INTERVIEW</button>
+              <button class="btn btn-outline btn-error">REJECTED</button>
+            </div>
+          </div>
+          <!-- 2 JOB card -->
+          <div class="shadow-md p-6 space-y-2 rounded-xl bg-white">
+            <div class="flex justify-between items-center">
+              <div>
+                <h1 class="font-bold text-[18px] text-[#002C5C]">
+                  Mobile First Corp
+                </h1>
+                <p class="text-[16px] text-[#64748B]">React Native Developer</p>
+              </div>
+              <button class="btn btn-neutral rounded-full shrink-0">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+            <br />
+            <p class="text-[14px] text-[#64748B]">
+              Remote • Full-time • $130,000 - $175,000
+            </p>
+            <br />
+            <button class="btn btn-soft">Not Applied</button>
+            <p class="text-[14px] text-[#323B49]">
+              Build cross-platform mobile applications using React Native. Work
+              on products used by millions of users worldwide.
+            </p>
+            <br />
+            <div class="space-x-2">
+              <button class="btn btn-outline btn-success">INTERVIEW</button>
+              <button class="btn btn-outline btn-error">REJECTED</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden" id="interview-container">Interview</div>
+        <div class="hidden" id="rejected-container">Rejected</div>
+      </section>
+
+      <!-- No Jobs Avaiable  -->
+      <section class="mt-4 hidden">
+        <div class="py-28 justify-items-center bg-white rounded-md">
+          <img src="./jobs.png" alt="" class="mb-5" />
+          <h1 class="font-semibold text-2xl text-[#002C5C]">
+            No jobs available
+          </h1>
+          <p class="text-[16px] text-[#64748B]">
+            Check back soon for new job opportunities
+          </p>
+        </div>
+      </section>
+    </section>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
