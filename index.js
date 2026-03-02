@@ -92,5 +92,12 @@ function updateStatistics() {
   interview.innerText = counts.interview;
   rejected.innerText = counts.rejected;
   available.innerText = counts[currentTab];
+
+  if(counts[currentTab] < 1) {
+    noJobs.classList.remove("hidden");
+  }
+  else {
+    noJobs.classList.add("hidden");
+  }
 }
 updateStatistics();
