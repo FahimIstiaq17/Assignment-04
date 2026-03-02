@@ -44,7 +44,6 @@ const total = document.getElementById("statistic-total");
 const interview = document.getElementById("statistic-interview");
 const rejected = document.getElementById("statistic-rejected");
 
-total.innerText = allContainer.children.length;
 switchTab(currentTab);
 
 // job cards
@@ -57,12 +56,22 @@ document.getElementById("job-container").addEventListener("click", function (eve
     if (clickedElement.classList.contains("interview")) {
         Status.innerText ="Interview";
         interviewContainer.appendChild(Card);
+        updateStatistics();
     }
     if (clickedElement.classList.contains("rejected")) {
         Status.innerText ="Rejected";
         rejectedContainer.appendChild(Card);
+        updateStatistics();
     }
     if (clickedElement.classList.contains("delete")) {
         Parent.removeChild(Card);
+        updateStatistics();
     }
 });
+
+function updateStatistics() {
+   total.innerText = allContainer.children.length;
+   interview.innerText = interviewContainer.children.length;
+   rejected.innerText = rejectedContainer.children.length;
+}
+updateStatistics();
