@@ -5,9 +5,9 @@ const tabInactive = ["bg-white", "text-[#64748B]"];
 const allContainer = document.getElementById("all-container");
 const interviewContainer = document.getElementById("interview-container");
 const rejectedContainer = document.getElementById("rejected-container");
-// console.log(allContainer, interviewContainer, rejectedContainer);
+const noJobs = document.getElementById("no-jobs");
 
-
+// Switch Tab
 function switchTab(tab) {
     // console.log(Tab);
     const Tabs = ["all" , "interview", "rejected"];
@@ -28,14 +28,25 @@ function switchTab(tab) {
         section.classList.add("hidden");
     }
 
+    noJobs.classList.add("hidden");
+
     if (tab === "all") {
         allContainer.classList.remove("hidden");
+        if (allContainer.children.length < 1) {
+            noJobs.classList.remove("hidden");
+        }
     }
     else if(tab === "interview") {
         interviewContainer.classList.remove("hidden");
+        if (interviewContainer.children.length < 1) {
+            noJobs.classList.remove("hidden");
+        }
     }
     else {
         rejectedContainer.classList.remove("hidden");
+        if (rejectedContainer.children.length <1 ) {
+            noJobs.classList.remove("hidden");
+        }
     }
 }
 
