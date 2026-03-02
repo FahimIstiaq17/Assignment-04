@@ -11,7 +11,6 @@ const rejectedContainer = document.getElementById("rejected-container");
 function switchTab(tab) {
     // console.log(Tab);
     const Tabs = ["all" , "interview", "rejected"];
-
     for (const ttab of Tabs) {
         const tabName = document.getElementById("tab-"+ttab);
         if(ttab === tab) {
@@ -24,6 +23,11 @@ function switchTab(tab) {
         }
     }
 
+    const Sections = [allContainer, interviewContainer, rejectedContainer];
+    for (const section of Sections) {
+        section.classList.add("hidden");
+    }
+
     if (tab === "all") {
         allContainer.classList.remove("hidden");
     }
@@ -34,4 +38,31 @@ function switchTab(tab) {
         rejectedContainer.classList.remove("hidden");
     }
 }
+
+// Statistics Update 
+const total = document.getElementById("statistic-total");
+const interview = document.getElementById("statistic-interview");
+const rejected = document.getElementById("statistic-rejected");
+
+total.innerText = allContainer.children.length;
 switchTab(currentTab);
+
+// job cards
+document.getElementById("job-container").addEventListener("click", function (event) {
+    const clickedElement = event.target;
+    const Card = clickedElement.closest(".Card");
+    const Status = Card.querySelector(".Status");
+    const Parent = Card.parentNode;
+    
+    if (clickedElement.classList.contains("interview")) {
+        Status.innerText ="Interview";
+        interviewContainer.appendChild(Card);
+    }
+    if (clickedElement.classList.contains("rejected")) {
+        Status.innerText ="Rejected";
+        rejectedContainer.appendChild(Card);
+    }
+    if (clickedElement.classList.contains("delete")) {
+        Parent.removeChild(Card);
+    }
+});
