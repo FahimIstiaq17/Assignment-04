@@ -37,15 +37,15 @@
     </style>
   </head>
 
-  <body class="bg-[#F8FAFC] py-15">
-    <section class="container mx-auto">
+  <body class="bg-[#F8FAFC] py-8 sm:py-12 lg:py-15 ">
+    <section class="container mx-auto px-4 sm:px-6 lg:px-0">
       <header class="mb-5">
         <h2 class="text-3xl font-bold text-[#002C5C]">
           Job Application Tracker
         </h2>
       </header>
       <!-- application Card -->
-      <section class="grid grid-cols-3 gap-4">
+      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <!-- card 1 -->
         <div class="p-5 bg-white rounded-md shadow-md gap-y-2">
           <p class="font-medium text-[14px] text-[#323B49]">Total</p>
@@ -86,7 +86,7 @@
         </div>
 
         <!-- Buttons -->
-        <div class="space-x-2">
+        <div class="flex flex-wrap space-x-2">
           <button
             id="tab-all"
             onclick="switchTab('all')"
